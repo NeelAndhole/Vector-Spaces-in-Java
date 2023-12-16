@@ -13,7 +13,7 @@
  * @param <T> - the vectors in question
  * @author Neel R Andhole
  */
-public interface VectorSpace<T extends Vector> {
+public interface VectorSpace<T extends GenericVector> {
 
   /**
    * 
@@ -36,7 +36,7 @@ public interface VectorSpace<T extends Vector> {
    * 
    * @param vector1 - the first vector
    * @param vector2 - the second vector
-   * @return the addition of the two vectors within the vector space
+   * @return a new vector, the addition of the two vectors within the vector space
    */
   public T vectorAddition(T vector1, T vector2);
 
@@ -58,9 +58,9 @@ public interface VectorSpace<T extends Vector> {
    * 
    * </pre>
    * 
-   * @param scalar
-   * @param vector
-   * @return
+   * @param scalar - the multiplier
+   * @param vector - the vector being scaled
+   * @return a new vector, the scalar multiplication
    */
   public T scalarMultiplication(double scalar, T vector);
 
@@ -71,16 +71,6 @@ public interface VectorSpace<T extends Vector> {
    */
   public T get0vector();
 
-  /**
-   * Takes a variety of vectors and checks whether the vector space axioms apply.
-   * 
-   * WARNING: cannot guarantee correctness of the vector space, but if it returns false, then the
-   * vector space is not valid
-   * 
-   * @return
-   */
-  public default boolean verifyVectorSpaceAxioms() {
-    // TODO add body
-    return false;
-  }
+  
+  
 }

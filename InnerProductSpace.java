@@ -4,14 +4,21 @@
  * 
  * @param <T> - the vectors in question
  */
-public interface InnerProductSpace<T extends Vector> extends VectorSpace<T> {
+public interface InnerProductSpace<T extends GenericVector> extends VectorSpace<T> {
 
   /**
    * This function takes two vectors and gives a scalar as the result.
+   * <pre>
    * 
-   * TODO add the axioms of inner
-   * products.
+   * x, y, z are generic vectors in the space, c is a scalar
    * 
+   * <x,y> is innerproduct(x,y)
+   * 1. <x,y> = <y,x>
+   * 2. <x,y+z> = <x,y> + <x,z>
+   * 3. <cx,y> = c<x,y>
+   * 4. <x,x> > = 0 && <x,x> == 0 IFF x = zero vector
+   * 
+   * </pre>
    * 
    * @param vector1
    * @param vector2
@@ -19,16 +26,7 @@ public interface InnerProductSpace<T extends Vector> extends VectorSpace<T> {
    */
   public double innerProduct(T vector1, T vector2);
   
-  /**
-   * checks the axioms of InnerProducts
-   * 
-   * @return true if all the tests are correct and false otherwise
-   */
-  public default boolean verifyInnerProduct() {
-    //TODO add body
-    return false;
-  }
-
+  
   /**
    * this function returns the norm of the vector parameter
    * 
